@@ -70,6 +70,48 @@ Then open:
 http://localhost:8000
 ```
 
+## Run with Docker
+
+This is the easiest way for a single person to run the project on one machine.
+
+### 1) Build the image
+
+```bash
+docker build -t ledger-witness .
+```
+
+### 2) Start the app
+
+```bash
+docker run --rm -p 8000:8000 \
+  -e OPENAI_API_KEY=your_openai_api_key_here \
+  -e OPENAI_MODEL=gpt-4o-mini \
+  --name ledger-witness \
+  ledger-witness
+```
+
+If you do not want to use OpenAI, you can omit the `OPENAI_API_KEY` environment variable. The app will fall back to a deterministic recommendation instead.
+
+Then open:
+
+```text
+http://localhost:8000
+```
+
+### 3) Optional: use a local env file
+
+You can also create a `.env` file next to the project and pass it in with Docker:
+
+```bash
+cp .env.example .env
+```
+
+Then run:
+
+```bash
+docker run --rm -p 8000:8000 --env-file .env --name ledger-witness ledger-witness
+```
+
 ## Hardware requirements
 
 This prototype requires:
