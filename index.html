@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ledger Witness MVP</title>
+    <meta name="description" content="Ledger Witness secure AI approval workflow prototype" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar panel">
+        <div class="brand-wrap">
+          <div class="brand-mark">L</div>
+          <div>
+            <p class="eyebrow">Ledger</p>
+            <h1>Witness</h1>
+          </div>
+        </div>
+
+        <nav class="side-nav">
+          <a class="nav-item active" href="#">Overview</a>
+          <a class="nav-item" href="#">AI policies</a>
+          <a class="nav-item" href="#">Patient consent</a>
+          <a class="nav-item" href="#">Audit trail</a>
+          <a class="nav-item" href="#">Governance</a>
+        </nav>
+
+        <div class="sidebar-card">
+          <span>Trust status</span>
+          <strong>Protected</strong>
+          <small>Human approval required</small>
+        </div>
+      </aside>
+
+      <div class="workspace">
+        <header class="topbar">
+          <div class="page-title-wrap">
+            <p class="eyebrow accent">Secure AI execution</p>
+            <h2>Operations dashboard</h2>
+          </div>
+          <div id="ledgerBadge" class="status-pill">
+            <span class="dot"></span>
+            Initializing trust layer
+          </div>
+        </header>
+
+        <main class="dashboard">
+        <section class="hero panel">
+          <div class="hero-copy">
+            <div class="hero-tags">
+              <span class="mini-tag">AI + trust layer</span>
+              <span class="mini-tag alt">Credential-safe</span>
+            </div>
+            <p class="eyebrow accent">AI + hardware-backed trust</p>
+            <h2>AI proposes. Ledger approves.</h2>
+            <p class="subtext">
+              This prototype follows Ledger's permission model: the model recommends a risky action, the policy scores it,
+              and the Ledger device displays a human-readable authorization summary before any privileged execution can proceed.
+            </p>
+
+            <div class="hero-actions">
+              <button id="evaluateBtn" class="primary">Run risk evaluation</button>
+              <button id="connectBtn" class="secondary">Connect Ledger</button>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Trust layer visualization">
+            <div class="visual-header">
+              <span>Execution policy</span>
+              <span class="visual-live"><i></i> Live</span>
+            </div>
+
+            <div class="ring-meter">
+              <div class="ring-core">
+                <strong id="heroTrustValue">72</strong>
+                <small>trust</small>
+              </div>
+            </div>
+
+            <div class="mini-grid">
+              <div class="mini-stat">
+                <span>Consent</span>
+                <strong>Verified</strong>
+              </div>
+              <div class="mini-stat">
+                <span>Approval</span>
+                <strong>Ledger</strong>
+              </div>
+              <div class="mini-stat">
+                <span>Audit</span>
+                <strong>Cryptographic</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel ask-witness-panel">
+          <div class="panel-header">
+            <h3>Ask Witness</h3>
+            <span class="badge neutral">AI recommends</span>
+          </div>
+
+          <label class="field-label" for="incidentInput">Incident</label>
+          <textarea id="incidentInput" rows="4">Our production API credentials may have been compromised. Investigate the situation and recommend the safest response.</textarea>
+
+          <div class="ask-actions">
+            <button id="askWitnessBtn" class="primary">Ask Witness</button>
+          </div>
+
+          <div class="recommendation-card">
+            <span class="recommendation-label">Recommended action</span>
+            <p id="incidentRecommendation">Recommended action: Rotate production API credential. Explanation: Potential credential exposure creates a risk of unauthorized access.</p>
+          </div>
+        </section>
+
+        <section class="metrics-grid">
+          <article class="panel stat-card">
+            <span class="label">Risk score</span>
+            <strong id="riskScore">--</strong>
+            <small id="riskLabel">Awaiting review</small>
+          </article>
+          <article class="panel stat-card">
+            <span class="label">Consent</span>
+            <strong id="consentState">--</strong>
+            <small>Patient / user policy</small>
+          </article>
+          <article class="panel stat-card">
+            <span class="label">Ledger status</span>
+            <strong id="ledgerState">Offline</strong>
+            <small id="ledgerMode">Demo mode</small>
+          </article>
+          <article class="panel stat-card">
+            <span class="label">Authorization evidence</span>
+            <strong id="auditCount">0</strong>
+            <small>Verified approvals</small>
+          </article>
+        </section>
+
+        <section class="panel trust-stack">
+          <div class="panel-header">
+            <h3>Implemented trust stack</h3>
+            <span class="badge neutral">Ledger-backed path</span>
+          </div>
+
+          <div class="stack-grid">
+            <div class="stack-item"><span>DMK Signer</span><small>device discovery, signer setup, and human-in-the-loop approval</small></div>
+            <div class="stack-item"><span>WebHID</span><small>USB Ledger connectivity in browser</small></div>
+            <div class="stack-item"><span>Readable authorization</span><small>human-readable approval details that are reviewed before signing</small></div>
+            <div class="stack-item"><span>Intent verification</span><small>hash binding, expiry checks, and signature recovery</small></div>
+            <div class="stack-item"><span>Fail-closed gate</span><small>privileged action stops without a valid sign-off</small></div>
+            <div class="stack-item"><span>Key-ring pattern</span><small>secret handling stays separate from execution and approval flows</small></div>
+          </div>
+        </section>
+
+        <section class="content-grid">
+          <div class="panel action-panel">
+            <div class="panel-header">
+              <h3>AI action request</h3>
+              <span id="actionBadge" class="badge warning">Awaiting Ledger</span>
+            </div>
+
+            <label class="field-label" for="actionInput">Action intent</label>
+            <input id="actionInput" value="Rotate compromised production API credential" />
+
+            <label class="field-label" for="consentInput">Consent status</label>
+            <select id="consentInput">
+              <option value="verified">Verified</option>
+              <option value="pending">Pending</option>
+              <option value="blocked">Blocked</option>
+            </select>
+
+            <label class="field-label" for="severityInput">Risk profile</label>
+            <select id="severityInput">
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+              <option value="critical" selected>Critical</option>
+            </select>
+
+            <p id="aiRecommendation" class="ai-note">AI recommendation: rotate compromised production API credential because the compromise signal requires a critical-risk authorization flow.</p>
+            <button id="approveBtn" class="primary wide">Approve on Ledger</button>
+            <button id="executeBtn" class="secondary wide" disabled>Execute Authorized Action</button>
+          </div>
+
+          <div class="panel detail-panel">
+            <div class="panel-header">
+              <h3>Authorization detail</h3>
+              <span class="badge success">Human approval</span>
+            </div>
+
+            <div class="authorization-card">
+              <div class="auth-title">Ledger Witness — Authorization Request</div>
+
+              <div class="detail-row">
+                <span>Requested action</span>
+                <strong id="detailAction">Rotate compromised production API credential</strong>
+              </div>
+              <div class="detail-row">
+                <span>Requested by</span>
+                <strong id="detailIntent">AI Security Agent</strong>
+              </div>
+              <div class="detail-row">
+                <span>Resource</span>
+                <strong id="detailResource">Production API Key</strong>
+              </div>
+              <div class="detail-row">
+                <span>Risk</span>
+                <strong id="detailRisk">--</strong>
+              </div>
+              <div class="detail-row">
+                <span>Reason</span>
+                <strong id="detailReason">Potential credential compromise</strong>
+              </div>
+              <div class="detail-row">
+                <span>Authorization required</span>
+                <strong id="detailRequired">Yes</strong>
+              </div>
+              <div class="detail-row">
+                <span>Expires</span>
+                <strong id="detailExpiry">30 minutes</strong>
+              </div>
+              <div class="detail-row">
+                <span>Signer</span>
+                <strong id="signedBy">Not yet signed</strong>
+              </div>
+              <div class="detail-row">
+                <span>Intent hash</span>
+                <strong id="intentHash">Not generated</strong>
+              </div>
+              <div class="detail-row">
+                <span>Signature status</span>
+                <strong id="signatureStatus">Not signed</strong>
+              </div>
+              <div class="detail-row">
+                <span>Verification state</span>
+                <strong id="verificationState">Pending</strong>
+              </div>
+              <div class="detail-row">
+                <span>Credential status</span>
+                <strong id="credentialStatus">Production API key active · v14</strong>
+              </div>
+            </div>
+
+            <div class="approval-console">
+              <div class="console-header">
+                <span>Device confirmation</span>
+                <span id="deviceState" class="device-state demo">Awaiting Ledger</span>
+              </div>
+              <p id="statusText">
+                The AI has prepared the approval request. It will pause before execution unless the Ledger device confirms the action.
+              </p>
+              <p id="tamperMessage" class="tamper-message">
+                No tampering detected. The approved action remains exact and verified.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel bottom-panel">
+          <div class="panel-header">
+            <h3>Authorization audit trail</h3>
+            <span class="badge neutral">Cryptographically verifiable</span>
+          </div>
+
+          <div id="auditLog" class="logs"></div>
+        </section>
+        </main>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

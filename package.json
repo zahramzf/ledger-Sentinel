@@ -1,0 +1,22 @@
+{
+  "name": "ledger",
+  "version": "1.0.0",
+  "description": "Ledger Witness is a secure, AI-powered operating layer for high-stakes digital actions. Instead of giving an AI agent unlimited autonomy, the system gives it a strict execution model: observe, classify risk, recommend, and only execute after the user explicitly approves the action through a Ledger-backed signature.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 8000",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 4173",
+    "start": "vite --host 0.0.0.0 --port 8000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ledgerhq/device-management-kit": "^1.11.0",
+    "@ledgerhq/device-signer-kit-ethereum": "^1.18.1",
+    "@ledgerhq/device-transport-kit-web-hid": "^1.2.4",
+    "ethers": "^6.17.0",
+    "vite": "^8.3.4"
+  }
+}
