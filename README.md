@@ -1,6 +1,6 @@
-# Ledger Witness
+# Ledger Sentinel
 
-Ledger Witness is a browser-based trust layer for AI-driven actions. An AI can recommend a privileged action, but the action cannot execute until a human approves the exact intent on a physical Ledger device and the signature is verified against the recovered address.
+Ledger Sentinel is a browser-based trust layer for AI-driven actions. An AI can recommend a privileged action, but the action cannot execute until a human approves the exact intent on a physical Ledger device and the signature is verified against the recovered address.
 
 ## What is implemented in the MVP
 
@@ -77,7 +77,7 @@ This is the easiest way for a single person to run the project on one machine.
 ### 1) Build the image
 
 ```bash
-docker build -t ledger-witness .
+docker build -t ledger-sentinel .
 ```
 
 ### 2) Start the app
@@ -86,8 +86,8 @@ docker build -t ledger-witness .
 docker run --rm -p 8000:8000 \
   -e OPENAI_API_KEY=your_openai_api_key_here \
   -e OPENAI_MODEL=gpt-4o-mini \
-  --name ledger-witness \
-  ledger-witness
+  --name ledger-sentinel \
+  ledger-sentinel
 ```
 
 If you do not want to use OpenAI, you can omit the `OPENAI_API_KEY` environment variable. The app will fall back to a deterministic recommendation instead.
@@ -109,7 +109,7 @@ cp .env.example .env
 Then run:
 
 ```bash
-docker run --rm -p 8000:8000 --env-file .env --name ledger-witness ledger-witness
+docker run --rm -p 8000:8000 --env-file .env --name ledger-sentinel ledger-sentinel
 ```
 
 ## Hardware requirements

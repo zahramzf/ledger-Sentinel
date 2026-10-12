@@ -1,7 +1,7 @@
 {
-  "name": "ledger",
+  "name": "ledger-sentinel",
   "version": "1.0.0",
-  "description": "Ledger Witness is a secure, AI-powered operating layer for high-stakes digital actions. Instead of giving an AI agent unlimited autonomy, the system gives it a strict execution model: observe, classify risk, recommend, and only execute after the user explicitly approves the action through a Ledger-backed signature.",
+  "description": "Ledger Sentinel is a secure, AI-powered operating layer for high-stakes digital actions. Instead of giving an AI agent unlimited autonomy, the system gives it a strict execution model: observe, classify risk, recommend, and only execute after the user explicitly approves the action through a Ledger-backed signature.",
   "main": "index.js",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 8000",

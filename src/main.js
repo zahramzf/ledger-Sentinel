@@ -6,7 +6,7 @@ import { Signature, verifyMessage } from 'ethers';
 
 const LEDGER_VENDOR_ID = 0x2c97;
 const DERIVATION_PATH = "44'/60'/0'/0/0";
-const APP_ORIGIN_TOKEN = 'ledger-witness-demo';
+const APP_ORIGIN_TOKEN = 'ledger-sentinel-demo';
 
 const buildClearSigningMessage = async (intent) => {
   const parameters = intent?.parameters || {};
@@ -19,7 +19,7 @@ const buildClearSigningMessage = async (intent) => {
   const intentHashHex = bytesToHex(fullIntentHash);
 
   return [
-    'Ledger Witness Authorization v1',
+    'Ledger Sentinel Authorization v1',
     `Intent hash: ${intentHashHex}`,
     `Action: ${action}`,
     `Resource: ${intent?.resource || 'unspecified resource'}`,

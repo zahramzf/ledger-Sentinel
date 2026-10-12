@@ -1,4 +1,4 @@
-# Ledger Witness — 2 Minute Demo Script
+# Ledger Sentinel — 2 Minute Demo Script
 
 ## Goal
 
@@ -9,11 +9,11 @@ Show how an AI can propose a risky action, the policy engine blocks autonomous e
 ## Scene 1 — Opening hook (0:00–0:20)
 
 Narration:
-"AI systems are powerful, but the real risk is not intelligence — it is unchecked execution. Ledger Witness creates a trust boundary between AI recommendation and privileged action."
+"AI systems are powerful, but the real risk is not intelligence — it is unchecked execution. Ledger Sentinel creates a trust boundary between AI recommendation and privileged action."
 
 On screen:
 
-- App title: Ledger Witness MVP
+- App title: Ledger Sentinel MVP
 - Hero section with headline: "AI proposes. Ledger approves."
 - Subtitle explaining that this prototype separates AI reasoning from privileged execution.
 
@@ -126,4 +126,4 @@ Closing line:
 ## Optional text overlay
 
 Add a simple title overlay during the demo:
-"Ledger Witness — Human approval for AI-driven credential actions"
+"Ledger Sentinel — Human approval for AI-driven credential actions"

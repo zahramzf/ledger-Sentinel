@@ -6,7 +6,7 @@
 
 ## Product explanation
 
-"Ledger Witness is a secure operating layer for AI-powered decisions. It lets the agent read, reason, explain, and propose actions, but refuses to execute privileged actions without an explicit Ledger-backed approval."
+"Ledger Sentinel is a secure operating layer for AI-powered decisions. It lets the agent read, reason, explain, and propose actions, but refuses to execute privileged actions without an explicit Ledger-backed approval."
 
 ## Walkthrough
 
